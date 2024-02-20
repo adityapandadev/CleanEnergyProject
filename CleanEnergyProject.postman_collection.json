@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "88004abd-8abd-4f5c-85ec-133b20cda7fb",
+		"name": "CleanEnergyProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15749312"
+	},
+	"item": [
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Project Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Project 3\",\n    \"fmv\" : 50\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Projects List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Projects edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Project 2\",\n    \"fmv\" : 95\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/6/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Projects Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Project2\",\n    \"fmv\" : 90\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/6/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Deals",
+			"item": [
+				{
+					"name": "Deal Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Deal 2\",\n    \"projects\" : [\n        {\n            \"project\" : 3,\n            \"tax_credit_transfer_rate\" : 0.9\n        },\n        {\n            \"project\" : 5,\n            \"tax_credit_transfer_rate\" : 0.8\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/deals/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deals",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deals list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/deals/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deals",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deals edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Deal 2\",\n    \"projects\" : [\n        {\n            \"project\" : 3,\n            \"tax_credit_transfer_rate\" : 0.9\n        },\n        {\n            \"project\" : 4,\n            \"tax_credit_transfer_rate\" : 0.5\n        }\n        \n\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/deals/39/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deals",
+								"39",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deals Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Deal 8\",\n    \"projects\" : [\n        {\n            \"project\" : 1,\n            \"tax_credit_transfer_rate\" : 0.9\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/deals/38/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"deals",
+								"38",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000/clean_energy_deals",
+			"type": "string"
+		}
+	]
+}
