@@ -19,6 +19,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
+
+"""
+Before Deployment Below Configuration will be changed
+
+1. Secret key will be set in environment variable
+2. DEBUG will be set to False
+3. Allowed host will only contain values with known IP, and APP_NAME.fly.dev" if hosted on fly
+4. Database will be configured at respective server 
+5. CORS configuration will be done through django-cors-headers library
+"""
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-27da$z^cvho87pm7102y)qc2!z8p%mv3^rcw*e*in8a@boc+ph'
 
