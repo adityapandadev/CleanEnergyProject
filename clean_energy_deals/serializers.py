@@ -8,7 +8,13 @@ class ProjectSerializer(serializers.ModelSerializer):
         model = Project
         fields = '__all__'
 
-class ProjectDealThroughSerializer(serializers.ModelSerializer):
+class ProjectDealThroughWriteSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ProjectDealThroughModel
+        fields = ['project','tax_credit_transfer_rate']
+
+class ProjectDealThroughRetrieveSerializer(serializers.ModelSerializer):
     project = ProjectSerializer()
 
     class Meta:
@@ -24,14 +30,14 @@ class DealRetrieveSerializer(serializers.ModelSerializer):
         fields = '__all__'
     
     def get_projects(self, instance):
-        return ProjectDealThroughSerializer(instance.projectdealthroughmodel_set.all(), many=True).data
+        return ProjectDealThroughRetrieveSerializer(instance.projectdealthroughmodel_set.all(), many=True).data
     
     def get_total_tax_credit_transfer_amount(self, instance):
         return ProjectDealThroughModel.objects.filter(deal=instance).\
                 aggregate(total_tax_credit_transfer_amount=Sum(F('project__fmv')*Decimal(0.3)*F('tax_credit_transfer_rate')))['total_tax_credit_transfer_amount'] or 0
 
 class DealCreateUpdateDeleteSerializer(serializers.ModelSerializer):
-    projects = ProjectDealThroughSerializer(many=True, write_only=True)
+    projects = ProjectDealThroughWriteSerializer(many=True, write_only=True)
 
     class Meta:
         model = Deal
